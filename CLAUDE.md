@@ -4,15 +4,15 @@ Site institucional em Flask para a KG Cruz Assessoria Contábil (escritório de 
 
 ## Estrutura
 
-- `app.py` — define as rotas do site (`/`, `/servicos`, `/sobre`, `/blog`, `/contato`), cada uma ligada a um arquivo em `templates/`
+- `app.py` — define as rotas do site (`/`, `/servicos`, `/sobre`, `/contato`), cada uma ligada a um arquivo em `templates/`
 - `templates/` — um arquivo `.html` por página
 - `static/css/style.css` — estilo visual do site
-- `static/images/` — logo, fotos e ícones usados nas páginas
+- `static/images/` — logo, marca d'água, foto do escritório e ícone do WhatsApp
 
 ## Estado atual
 
-- `index.html` e `servicos.html` — conteúdo completo
-- `sobre.html`, `blog.html` e `contato.html` — ainda vazios (só o esqueleto padrão de HTML), precisam de conteúdo
+- `index.html`, `servicos.html`, `sobre.html` e `contato.html` — conteúdo completo
+- Não existe mais página de Blog (removida a pedido do dono do site)
 
 ## Como eu quero trabalhar (importante)
 

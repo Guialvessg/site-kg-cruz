@@ -14,10 +14,6 @@ def servicos():
 def sobre():
     return render_template("sobre.html")
 
-@app.route("/blog")
-def blog():
-    return render_template("blog.html")
-
 @app.route("/contato")
 def contato():
     return render_template("contato.html")
