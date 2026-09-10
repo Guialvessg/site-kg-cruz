@@ -25,6 +25,11 @@
 </header>
 
 <section class="hero" id="inicio">
+  <video class="hero-video" autoplay muted loop playsinline poster="{{ url_for('static', filename='images/cidades/skyline-noite.jpg') }}">
+    <source src="{{ url_for('static', filename='videos/cidade-noturna-1.mp4') }}" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+
   <img class="marca-dagua marca-dagua--topo-esquerda" src="{{ url_for('static', filename='images/marca-dagua.png') }}" alt="">
 
   <div class="hero-text">
@@ -210,6 +215,10 @@
       header.classList.remove("scrolled");
     }
   });
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.hero-video').forEach((video) => video.pause());
+  }
 </script>
 
 </body>

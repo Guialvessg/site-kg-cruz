@@ -25,6 +25,11 @@
 </header>
 
 <section class="pagina-hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="{{ url_for('static', filename='images/cidades/dubai.jpg') }}">
+    <source src="{{ url_for('static', filename='videos/cidade-noturna-2.mp4') }}" type="video/mp4">
+  </video>
+  <div class="pagina-hero-overlay"></div>
+
   <img class="marca-dagua marca-dagua--topo-esquerda" src="{{ url_for('static', filename='images/marca-dagua.png') }}" alt="">
 
   <span class="subtitulo">Fale conosco</span>
@@ -121,6 +126,10 @@
       header.classList.remove("scrolled");
     }
   });
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.hero-video').forEach((video) => video.pause());
+  }
 </script>
 
 </body>

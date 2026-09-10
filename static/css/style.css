@@ -81,11 +81,7 @@ nav a:hover {
 /* HERO */
 
 .hero {
-  background:
-    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-    url("../images/escritorio.jpg");
-  background-size: cover;
-  background-position: center;
+  background: #050505;
   color: white;
   padding: 120px 8%;
   display: flex;
@@ -94,6 +90,29 @@ nav a:hover {
   gap: 50px;
   position: relative;
   isolation: isolate;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  z-index: -2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video {
+    display: none;
+  }
 }
 
 .hero-text {
@@ -457,13 +476,60 @@ nav a:hover {
 
 .pagina-hero {
   padding: 110px 8%;
-  background:
-    radial-gradient(circle at top right, rgba(212,175,55,0.16), transparent 35%),
-    linear-gradient(135deg, #050505, #1b130d 60%, #302111);
+  background: #050505;
   color: white;
   text-align: center;
   position: relative;
   isolation: isolate;
+  overflow: hidden;
+}
+
+.pagina-hero-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+}
+
+.pagina-hero-slideshow img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: paginaHeroFade 20s infinite;
+}
+
+.pagina-hero-slideshow img:nth-child(1) { animation-delay: 0s; }
+.pagina-hero-slideshow img:nth-child(2) { animation-delay: 5s; }
+.pagina-hero-slideshow img:nth-child(3) { animation-delay: 10s; }
+.pagina-hero-slideshow img:nth-child(4) { animation-delay: 15s; }
+
+@keyframes paginaHeroFade {
+  0%   { opacity: 0; }
+  4%   { opacity: 1; }
+  21%  { opacity: 1; }
+  25%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.pagina-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(212,175,55,0.22), transparent 35%),
+    linear-gradient(135deg, rgba(5,5,5,0.86), rgba(27,19,13,0.8) 60%, rgba(48,33,17,0.72));
+  z-index: -2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pagina-hero-slideshow img {
+    animation: none;
+  }
+
+  .pagina-hero-slideshow img:first-child {
+    opacity: 1;
+  }
 }
 
 .pagina-hero h2 {
