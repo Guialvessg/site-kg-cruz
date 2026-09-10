@@ -25,9 +25,14 @@
 </header>
 
 <section class="hero" id="inicio">
-  <video class="hero-video" autoplay muted loop playsinline poster="{{ url_for('static', filename='images/cidades/skyline-noite.jpg') }}">
-    <source src="{{ url_for('static', filename='videos/cidade-noturna-1.mp4') }}" type="video/mp4">
-  </video>
+  <div class="hero-video-rotator">
+    <video class="hero-video is-active" autoplay muted loop playsinline poster="{{ url_for('static', filename='images/cidades/aviao-noturno.jpg') }}">
+      <source src="{{ url_for('static', filename='videos/aviao-noturno.mp4') }}" type="video/mp4">
+    </video>
+    <video class="hero-video" autoplay muted loop playsinline poster="{{ url_for('static', filename='images/cidades/cidade-moderna-noturna.jpg') }}">
+      <source src="{{ url_for('static', filename='videos/cidade-moderna-noturna.mp4') }}" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-overlay"></div>
 
   <img class="marca-dagua marca-dagua--topo-esquerda" src="{{ url_for('static', filename='images/marca-dagua.png') }}" alt="">
@@ -218,6 +223,18 @@
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelectorAll('.hero-video').forEach((video) => video.pause());
+  } else {
+    const videosDoHero = document.querySelectorAll('.hero-video-rotator .hero-video');
+
+    if (videosDoHero.length > 1) {
+      let indiceAtual = 0;
+
+      setInterval(() => {
+        videosDoHero[indiceAtual].classList.remove('is-active');
+        indiceAtual = (indiceAtual + 1) % videosDoHero.length;
+        videosDoHero[indiceAtual].classList.add('is-active');
+      }, 9000);
+    }
   }
 </script>
 

@@ -102,6 +102,21 @@ nav a:hover {
   z-index: -3;
 }
 
+.hero-video-rotator {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+}
+
+.hero-video-rotator .hero-video {
+  opacity: 0;
+  transition: opacity 1.6s ease;
+}
+
+.hero-video-rotator .hero-video.is-active {
+  opacity: 1;
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
